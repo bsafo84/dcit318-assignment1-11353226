@@ -1,0 +1,43 @@
+using System;
+
+class TriangleTypeIdentifier
+{
+    static void Main()
+    {
+        Console.WriteLine("Triangle Type Identifier");
+        
+        Console.Write("Enter length of side 1: ");
+        double side1 = double.Parse(Console.ReadLine());
+        
+        Console.Write("Enter length of side 2: ");
+        double side2 = double.Parse(Console.ReadLine());
+        
+        Console.Write("Enter length of side 3: ");
+        double side3 = double.Parse(Console.ReadLine());
+        
+        if (IsValidTriangle(side1, side2, side3))
+        {
+            if (side1 == side2 && side2 == side3)
+            {
+                Console.WriteLine("This is an Equilateral triangle.");
+            }
+            else if (side1 == side2 || side1 == side3 || side2 == side3)
+            {
+                Console.WriteLine("This is an Isosceles triangle.");
+            }
+            else
+            {
+                Console.WriteLine("This is a Scalene triangle.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("These sides do not form a valid triangle.");
+        }
+    }
+    
+    static bool IsValidTriangle(double a, double b, double c)
+    {
+        return a + b > c && a + c > b && b + c > a;
+    }
+}
