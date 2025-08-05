@@ -1,0 +1,24 @@
+using System;
+
+class TicketPriceCalculator
+{
+    static void Main()
+    {
+        Console.WriteLine("Ticket Price Calculator");
+        Console.Write("Enter your age: ");
+        
+        if (int.TryParse(Console.ReadLine(), out int age))
+        {
+            const double regularPrice = 10.0;
+            const double discountedPrice = 7.0;
+            
+            double price = (age <= 12 || age >= 65) ? discountedPrice : regularPrice;
+            
+            Console.WriteLine($"Your ticket price is: GHC{price}");
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid age.");
+        }
+    }
+}
